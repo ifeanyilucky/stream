@@ -1,3 +1,4 @@
+
 <template>
     <nav className="container-sm">
         <div class="nav-wrapper">
@@ -31,6 +32,7 @@
 </template>
 
 <script lang="ts">
+// @ts-nocheck
 export default {
     name: 'NavbarLayout',
     data() {

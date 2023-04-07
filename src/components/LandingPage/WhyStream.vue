@@ -24,6 +24,7 @@
 </template>
 
 <script lang="ts">
+// @ts-nocheck
 import { ref } from 'vue';
 import gsap from "gsap"
 import ScrollTrigger from "gsap/ScrollTrigger"

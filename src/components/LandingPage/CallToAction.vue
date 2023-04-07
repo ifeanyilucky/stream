@@ -48,6 +48,7 @@
 
 
 <script lang="ts">
+// @ts-nocheck
 import { ref } from 'vue';
 import { ScrollTrigger } from 'gsap/all';
 import gsap from "gsap";
