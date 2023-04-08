@@ -12,7 +12,7 @@
                             each
                             stream with just a few
                             clicks.</p>
-                        <button class="button">Go to Dashboard</button>
+                        <button class="button">Early Access</button>
                     </div>
                     <div class="col-md-6">
                         <img src="/static/images/community_money.png" class="img-fluid w-100" />
@@ -30,17 +30,17 @@
                         <h2 class="display-5">Build with streams</h2>
                         <div class=" my-4">
                             <p>
-                                With Superfluid, you can open a stream with a single line of code. Plus, thanks to our SDK
+                                With Streamroan, you can open a stream with a single line of code. Plus, thanks to our SDK
                                 Suite
                                 and Protocol Docs, you'll have everything you need to integrate asset streaming into your
                                 apps.
                             </p>
                             <p class="my-4">
-                                Need to debug? We've got you covered with the Superfluid Console to make it as easy as
+                                Need to debug? We've got you covered with the Streamroan Console to make it as easy as
                                 possible.
                             </p>
                         </div>
-                        <button class="button button-white">Go to Protocol Docs</button>
+                        <button class="button button-white">Protocol Docs Demo</button>
                     </div>
                 </div>
             </div>

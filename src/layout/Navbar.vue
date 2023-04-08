@@ -3,7 +3,7 @@
     <nav className="container">
         <div class="nav-wrapper">
             <div class="logo">
-                <h2>Superfluid</h2>
+                <h2>Streamroan</h2>
             </div>
             <ul class="nav-items " :class="navOpen && 'open'">
 

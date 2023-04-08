@@ -11,7 +11,7 @@
                         <p class="text-muted my-4">
                             From real-time investing to crypto-native subscriptions and more, our community of developers
                             and
-                            partners is leveraging Superfluid to build unique, powerful financial experiences.
+                            partners is leveraging Streamroan to build unique, powerful financial experiences.
                         </p>
                         <button class="button">Explore now</button>
 
@@ -19,8 +19,7 @@
                         <div class="featured-wrapper" ref="featuredWrapper">
 
                             <a :href="company.url" class="logo-wrapper" v-for="company in companies" :key="company.about"
-                                ref="featured" :style="[{ backgroundColor: company.color }]"
-                                @mouseover="open = company.title" @mouseout="open = 0">
+                                ref="featured" :style="[{ backgroundColor: company.color }]">
                                 <div v-if="open = company.title" style="text-align: left" class="info">
                                     <img :src="company.logo" class="small-logo" size="30%" :alt="company.title" />
                                     <h5>{{ company.title }}</h5>
@@ -40,60 +39,66 @@
 </template>
 
 <script lang="ts">
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-nocheck
+
 import gsap from 'gsap'
+import { defineComponent } from 'vue'
 import { ScrollTrigger } from 'gsap/all'
 gsap.registerPlugin(ScrollTrigger)
 
-const companies = [
-    {
-        logo: '/static/logo/flutterwave.png',
-        url: 'https://flutterwave.com',
-        title: 'Flutterwave',
-        about: 'Sell online, process payments, build financial products, or use business tools designed to grow your business.',
-        color: 'rgb(255, 179, 179)'
-    },
-    {
-        logo: '/static/logo/grey.webp',
-        url: 'https://grey.co',
-        title: 'Grey Finance',
-        about: 'Open a global bank account in minutes for free. Join over 100,000 African freelancers and remote workers and send payments,',
-        color: 'rgb(169, 169, 169)'
-    },
-    {
-        logo: '/static/logo/kuda.png',
-        url: 'https://kuda.com',
-        title: 'Kuda Bank',
-        about: 'Kuda, the money app for Africans licensed by the CBN. Zero maintenance fees, free transfers, automatic savings & investments.',
-        color: 'rgb(255, 247, 232)'
-    },
-    {
-        logo: '/static/logo/paystack.png',
-        url: 'https://paystack.com',
-        title: 'Paystack',
-        about: 'Modern online and offline payments for Africa',
-        color: 'rgb(242, 245, 253)'
-    },
-    {
-        logo: '/static/logo/thebrik.png',
-        url: 'https://thebrik.co',
-        title: 'Thebrik Co',
-        about: 'Thebrik is the complete hostel rental solution for agents and university students - list a hostel, rent a hostel.',
-        color: 'rgb(222, 222, 255)'
-    },
-    {
-        logo: '/static/logo/thebrik.png',
-        url: 'https://thebrik.co',
-        title: 'Thebrik Co',
-        about: 'Thebrik is the complete hostel rental solution for agents and university students - list a hostel, rent a hostel.',
-        color: 'rgb(222, 222, 295)'
-    },
+const companies: {
+    logo: string;
+    url: string;
+    title: string;
+    about: string;
+    color: string;
+}[] = [
+        {
+            logo: '/static/logo/flutterwave.png',
+            url: 'https://flutterwave.com',
+            title: 'Flutterwave',
+            about: 'Sell online, process payments, build financial products, or use business tools designed to grow your business.',
+            color: 'rgb(255, 179, 179)'
+        },
+        {
+            logo: '/static/logo/grey.webp',
+            url: 'https://grey.co',
+            title: 'Grey Finance',
+            about: 'Open a global bank account in minutes for free. Join over 100,000 African freelancers and remote workers and send payments,',
+            color: 'rgb(169, 169, 169)'
+        },
+        {
+            logo: '/static/logo/kuda.png',
+            url: 'https://kuda.com',
+            title: 'Kuda Bank',
+            about: 'Kuda, the money app for Africans licensed by the CBN. Zero maintenance fees, free transfers, automatic savings & investments.',
+            color: 'rgb(255, 247, 232)'
+        },
+        {
+            logo: '/static/logo/paystack.png',
+            url: 'https://paystack.com',
+            title: 'Paystack',
+            about: 'Modern online and offline payments for Africa',
+            color: 'rgb(242, 245, 253)'
+        },
+        {
+            logo: '/static/logo/thebrik.png',
+            url: 'https://thebrik.co',
+            title: 'Thebrik Co',
+            about: 'Thebrik is the complete hostel rental solution for agents and university students - list a hostel, rent a hostel.',
+            color: 'rgb(222, 222, 255)'
+        },
+        {
+            logo: '/static/logo/thebrik.png',
+            url: 'https://thebrik.co',
+            title: 'Thebrik Co',
+            about: 'Thebrik is the complete hostel rental solution for agents and university students - list a hostel, rent a hostel.',
+            color: 'rgb(222, 222, 295)'
+        },
 
 
-]
+    ]
 
-export default {
+export default defineComponent({
     name: 'LandingExplore',
     data() {
         return {
@@ -102,8 +107,10 @@ export default {
         }
     },
     mounted() {
-        const sectionRef = this.$refs.section;
-        const featuredRef = this.$refs.featured;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const sectionRef: any = this.$refs.section;
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
+        const featuredRef: any = this.$refs.featured;
 
         gsap.to(featuredRef, {
             xPercent: -100 * (featuredRef.length - 1),
@@ -119,10 +126,10 @@ export default {
     },
     methods: {
         openCompanyInfo() {
-            console.log('hovered sucessfully')
+            console.log('hovered successfully')
         }
     }
-}
+})
 </script>
 <style lang="scss" scoped>
 section {
@@ -141,6 +148,7 @@ section {
     display: flex;
     flex-flow: row;
     margin: 3rem 0;
+    position: relative;
 
     /* overflow: inherit; */
 
@@ -169,6 +177,7 @@ section {
         cursor: pointer;
         text-decoration: none;
         color: #000;
+        position: relative;
 
         img {
             height: auto;

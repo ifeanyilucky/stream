@@ -10,12 +10,12 @@
                 <h2 class="display-1">
                     Stream money every second.</h2>
                 <p class="text-muted py-3">
-                    Superfluid is a revolutionary asset streaming protocol that brings subscriptions, salaries, vesting,
+                    Streamroan is a revolutionary asset streaming protocol that brings subscriptions, salaries, vesting,
                     and
                     rewards to DAOs and crypto-native businesses worldwide.
                 </p>
                 <div>
-                    <button class="button mr-2">Launch App</button>
+                    <button class="button mr-2">Early Access</button>
                     <button class="button button-outline ml-3">Book Demo</button>
                 </div>
             <!-- <div class="d-flex logo-wrapper">
@@ -25,7 +25,7 @@
                     <img src="/static/logo/thebrik.png" class="trust-logo" />
                     <img src="/static/logo/grey.webp" class="trust-logo" />
                     <img src="/static/logo/paystack.png" class="trust-logo" />
-                    </div> -->
+                            </div> -->
             </div>
         </div>
     </div>

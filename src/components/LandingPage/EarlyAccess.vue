@@ -9,7 +9,7 @@
                             Sign up for early access
                         </h3>
                         <p class="text-muted my-4">
-                            Sign up to the Superfluid Flow early access and stay up to date with Superfluid Protocol and the
+                            Sign up to the Streamroan Flow early access and stay up to date with Streamroan Protocol and the
                             innovative projects building on top of it.
                         </p>
                         <form class="early-access-form">

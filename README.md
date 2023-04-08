@@ -1,4 +1,4 @@
-# superfluid
+# Streamroan
 
 ## Project setup
 ```
