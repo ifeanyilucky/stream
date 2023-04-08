@@ -18,12 +18,34 @@
                     <button class="button mr-2">Launch App</button>
                     <button class="button button-outline ml-3">Book Demo</button>
                 </div>
+            <!-- <div class="d-flex logo-wrapper">
+                    <h6 class="text-muted">Trusted by:</h6>
+                    <img src="/static/logo/flutterwave.png" class="trust-logo" />
+                    <img src="/static/logo/kuda.png" class="trust-logo" />
+                    <img src="/static/logo/thebrik.png" class="trust-logo" />
+                    <img src="/static/logo/grey.webp" class="trust-logo" />
+                    <img src="/static/logo/paystack.png" class="trust-logo" />
+                    </div> -->
             </div>
         </div>
     </div>
 </template>
 
 <style lang="scss">
+.logo-wrapper {
+    justify-content: space-between;
+    align-items: center;
+    position: absolute;
+    bottom: 0;
+
+    .trust-logo {
+        height: 25px;
+        width: 100%;
+        margin: 10px;
+        filter: grayscale(5);
+    }
+}
+
 .hero {
     width: 100vw;
     overflow-y: scroll;
@@ -76,7 +98,7 @@
     @media (min-width: 768px) {
         .hero-video {
             width: 120%;
-            height: 120%;
+
             top: 0;
             left: -5%;
         }

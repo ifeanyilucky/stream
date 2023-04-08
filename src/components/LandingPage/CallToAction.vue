@@ -2,9 +2,9 @@
     <div ref="sectionWrapper">
 
 
-        <section class="section1" ref="section1">
+        <section class="section1 py-5" ref="section1">
             <div class="container my-5 py-5">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-md-6">
                         <h2 class="display-5">All your streams in one place</h2>
                         <p class="text-muted my-4">Manage your incoming and outgoing streams.<br /> You can start, edit and
@@ -14,12 +14,15 @@
                             clicks.</p>
                         <button class="button">Go to Dashboard</button>
                     </div>
+                    <div class="col-md-6">
+                        <img src="/static/images/community_money.png" class="img-fluid w-100" />
+                    </div>
                 </div>
             </div>
         </section>
-        <section class="section2" ref="section2">
+        <section class="section2 py-5" ref="section2">
             <div class="container my-5 py-5">
-                <div class="row">
+                <div class="row align-items-center">
                     <div class="col-md-6">
                         <CodeDocs />
                     </div>
@@ -71,17 +74,7 @@ export default {
             section1Ref: ref(null),
             section2Ref: ref(null),
             sectionWrapper: ref(null),
-            codeSample: `
-            const query = function getIsUserCurrentlyStreaming(receiver: string, sender: string, token: string) {
-    streamPeriods(
-        { sender, receiver, token },
-        first: 1,
-        orderBy: 'date',
-        orderDirection: 'desc',
-    )
-    return;
-}
-            `
+
         };
     },
     mounted() {
@@ -106,13 +99,13 @@ export default {
 
 <style lang="scss" scoped>
 .section1 {
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;
 }
 
 .section2 {
-    height: 100vh;
+    height: 100%;
     display: flex;
     align-items: center;
     color: #fff !important

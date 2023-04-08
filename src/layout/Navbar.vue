@@ -1,6 +1,6 @@
 
 <template>
-    <nav className="container-sm">
+    <nav className="container">
         <div class="nav-wrapper">
             <div class="logo">
                 <h2>Superfluid</h2>
@@ -22,10 +22,10 @@
                 <li class="nav-item"><router-link to="/" class="nav-link">Solutions</router-link> </li>
             </ul>
             <div class="nav-button" v-on:click="handleNavbar">
-                <div style="transform-origin: center "
-                    :style="[navOpen ? { transform: 'rotate(45deg)' } : { transform: 'rotate(0)' }]" />
+                <div style="transform-origin: 1% "
+                    :style="[navOpen ? { transform: 'rotate(40deg)' } : { transform: 'rotate(0)' }]" />
 
-                <div :style="[navOpen ? { transform: 'rotate(320deg)' } : { transform: 'rotate(0)' }]" />
+                <div :style="[navOpen ? { transform: 'rotate(326deg)' } : { transform: 'rotate(0)' }]" />
             </div>
         </div>
     </nav>
@@ -56,7 +56,7 @@ export default {
     }
 }
 </script>
-<style lang="scss">
+<style lang="scss" scoped>
 .nav-wrapper {
     display: flex;
     flex-flow: row;
@@ -76,8 +76,12 @@ export default {
         }
 
         cursor: pointer;
-
+        position: fixed !important;
+        top: 30px;
+        right: 30px;
         z-index: 999;
+        background-color: #fff;
+        padding: 5px 15px;
 
         div {
 
@@ -87,6 +91,7 @@ export default {
             background-color: rgb(0, 0, 0);
             border-radius: 10px;
             margin: 8px 0;
+            transition: 0.3s all ease-in-out;
 
 
 
@@ -124,7 +129,7 @@ export default {
 
         .nav-items-mobile {
             flex-flow: column !important;
-
+            z-index: 999;
             position: fixed;
             top: 0;
             height: 100vh;

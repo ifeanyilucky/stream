@@ -1,5 +1,5 @@
 <template>
-    <div class="position-relative">
+    <div class="position-relative" style="overflow-x: hidden">
         <div class="wrapper  container" ref="section">
             <h3 class="display-5 my-5">
                 Why stream money?

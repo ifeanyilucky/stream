@@ -1,6 +1,7 @@
 <template>
   <NavbarLayout />
   <router-view />
+  <footer>Site by <a href='https://ifeanyilucky.vercel.app' target="_blank">Codack</a>💚</footer>
 </template>
 
 <script lang="ts">
@@ -49,6 +50,7 @@ $primary-regular: GT Walsheim;
   font-family: 'GT Walsheim';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow: hidden !important;
 
   color: #000;
 
@@ -99,5 +101,10 @@ h6 {
   border: 1px solid #fff;
   color: #000;
 
+}
+
+footer {
+  text-align: center;
+  margin: 20px 0;
 }
 </style>

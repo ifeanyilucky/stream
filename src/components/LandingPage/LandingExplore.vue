@@ -1,9 +1,9 @@
 
 <template>
-    <section>
-        <div class="container h-100">
-            <div class="wrapper h-100">
-                <div class="row align-items-center justify-content-center h-100">
+    <section ref="section">
+        <div class="container">
+            <div class="wrapper">
+                <div class="row align-items-center justify-content-center">
                     <div class="col-md-6 col-12 text-center mx-auto">
                         <h3 class="display-4">
                             Explore our growing ecosystem
@@ -14,14 +14,25 @@
                             partners is leveraging Superfluid to build unique, powerful financial experiences.
                         </p>
                         <button class="button">Explore now</button>
-                    </div>
-                </div>
-                <div class="featured-wrapper">
 
-                    <div class="logo-wrapper one" v-for="company in companies" :key="company.about">
-                        <img alt="--" :src="company.logo" />
-                    </div>
 
+                        <div class="featured-wrapper" ref="featuredWrapper">
+
+                            <a :href="company.url" class="logo-wrapper" v-for="company in companies" :key="company.about"
+                                ref="featured" :style="[{ backgroundColor: company.color }]"
+                                @mouseover="open = company.title" @mouseout="open = 0">
+                                <div v-if="open = company.title" style="text-align: left" class="info">
+                                    <img :src="company.logo" class="small-logo" size="30%" :alt="company.title" />
+                                    <h5>{{ company.title }}</h5>
+                                    <p class="small">{{ company.about }}</p>
+                                </div>
+
+                                <img alt="--" class="large-logo" :src="company.logo" />
+
+
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -29,94 +40,93 @@
 </template>
 
 <script lang="ts">
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
+import gsap from 'gsap'
+import { ScrollTrigger } from 'gsap/all'
+gsap.registerPlugin(ScrollTrigger)
 
 const companies = [
     {
         logo: '/static/logo/flutterwave.png',
-        url: '',
+        url: 'https://flutterwave.com',
         title: 'Flutterwave',
-        about: '',
+        about: 'Sell online, process payments, build financial products, or use business tools designed to grow your business.',
+        color: 'rgb(255, 179, 179)'
     },
     {
         logo: '/static/logo/grey.webp',
-        url: '',
+        url: 'https://grey.co',
         title: 'Grey Finance',
-        about: '',
+        about: 'Open a global bank account in minutes for free. Join over 100,000 African freelancers and remote workers and send payments,',
+        color: 'rgb(169, 169, 169)'
     },
     {
         logo: '/static/logo/kuda.png',
-        url: '',
+        url: 'https://kuda.com',
         title: 'Kuda Bank',
-        about: '',
+        about: 'Kuda, the money app for Africans licensed by the CBN. Zero maintenance fees, free transfers, automatic savings & investments.',
+        color: 'rgb(255, 247, 232)'
     },
     {
         logo: '/static/logo/paystack.png',
-        url: '',
+        url: 'https://paystack.com',
         title: 'Paystack',
-        about: '',
+        about: 'Modern online and offline payments for Africa',
+        color: 'rgb(242, 245, 253)'
     },
     {
         logo: '/static/logo/thebrik.png',
         url: 'https://thebrik.co',
         title: 'Thebrik Co',
-        about: '',
+        about: 'Thebrik is the complete hostel rental solution for agents and university students - list a hostel, rent a hostel.',
+        color: 'rgb(222, 222, 255)'
     },
     {
         logo: '/static/logo/thebrik.png',
         url: 'https://thebrik.co',
         title: 'Thebrik Co',
-        about: '',
+        about: 'Thebrik is the complete hostel rental solution for agents and university students - list a hostel, rent a hostel.',
+        color: 'rgb(222, 222, 295)'
     },
-    {
-        logo: '/static/logo/thebrik.png',
-        url: 'https://thebrik.co',
-        title: 'Thebrik Co',
-        about: '',
-    },
-    {
-        logo: '/static/logo/thebrik.png',
-        url: 'https://thebrik.co',
-        title: 'Thebrik Co',
-        about: '',
-    },
-    {
-        logo: '/static/logo/thebrik.png',
-        url: 'https://thebrik.co',
-        title: 'Thebrik Co',
-        about: '',
-    },
-    {
-        logo: '/static/logo/thebrik.png',
-        url: 'https://thebrik.co',
-        title: 'Thebrik Co',
-        about: '',
-    },
-    {
-        logo: '/static/logo/thebrik.png',
-        url: 'https://thebrik.co',
-        title: 'Thebrik Co',
-        about: '',
-    },
-    {
-        logo: '/static/logo/thebrik.png',
-        url: 'https://thebrik.co',
-        title: 'Thebrik Co',
-        about: '',
-    },
+
+
 ]
 
 export default {
     name: 'LandingExplore',
     data() {
         return {
-            companies
+            companies,
+            open: 'Thebrik',
+        }
+    },
+    mounted() {
+        const sectionRef = this.$refs.section;
+        const featuredRef = this.$refs.featured;
+
+        gsap.to(featuredRef, {
+            xPercent: -100 * (featuredRef.length - 1),
+            ease: 'none',
+            scrollTrigger: {
+                trigger: sectionRef,
+                pin: true,
+                end: '+=3000',
+                scrub: 1,
+
+            }
+        })
+    },
+    methods: {
+        openCompanyInfo() {
+            console.log('hovered sucessfully')
         }
     }
 }
 </script>
 <style lang="scss" scoped>
 section {
-    height: 100vh;
+    height: 100%;
     position: relative;
 }
 
@@ -125,20 +135,18 @@ section {
 }
 
 .featured-wrapper {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    width: 1572px;
-    height: 861px;
+
+
     padding: 0px;
-    margin: -430.5px 0px 0px -786px;
-    overflow: inherit;
+    display: flex;
+    flex-flow: row;
+    margin: 3rem 0;
+
+    /* overflow: inherit; */
 
     @media (min-width: 768px) {
         .logo-wrapper {
-            position: absolute;
-            top: 0px;
-            left: 0px;
+
             max-width: 250px;
             height: 239px;
             flex: 1 0 250px;
@@ -152,104 +160,43 @@ section {
         max-width: 250px;
         height: 239px;
         flex: 1 0 250px;
-        margin: 0px;
+        margin: 0 10px;
         padding: 35px;
         border-radius: 92px;
-        background-color: rgb(242, 245, 253);
         display: flex;
         align-items: center;
+        transition: 0.3s all ease-in-out;
+        cursor: pointer;
+        text-decoration: none;
+        color: #000;
 
         img {
             height: auto;
             width: 100%;
         }
 
-        :nth-child(2) {
-            margin: 0px 0px 0px 485px;
+        &:hover {
+            border-radius: 75px;
+
+
         }
 
-        :nth-child(3) {
-            margin: 0px 0px 0px 485px;
+        &:hover .large-logo {
+            display: none;
         }
 
-        :nth-child(4) {
-            margin: 5px 0px 0px 775px;
+        .info {
+            display: none;
+
         }
 
-        :nth-child(5) {
-            margin: 15px 0px 0px 1096px;
-        }
-
-        :nth-child(6) {
-            margin: 300px 0px 0px 1035px;
-        }
-
-        :nth-child(7) {
-            margin: 230px 0px 0px 1322px;
-        }
-
-        :nth-child(8) {
-            margin: 0px 0px 0px 485px;
-        }
-
-        :nth-child(9) {
-            margin: 620px 0px 0px 760px;
-        }
-
-        :nth-child(10) {
-            margin: 300px 0px 0px 1035px;
-        }
-
-        :nth-child(11) {
-            margin: 601px 0px 0px 196px;
-        }
-
-        :nth-child(12) {
-            margin: 309px 0px 0px;
+        &:hover .info {
+            display: block !important;
         }
 
     }
 
 
-    .logo-wrapper.three {
-        margin: 0px 0px 0px 485px;
-    }
-
-    .logo-wrapper.four {
-        margin: 5px 0px 0px 775px;
-    }
-
-    .logo-wrapper.five {
-        margin: 15px 0px 0px 1096px;
-    }
-
-    .logo-wrapper.six {
-        margin: 300px 0px 0px 1035px;
-    }
-
-    .logo-wrapper.seven {
-        margin: 230px 0px 0px 1322px;
-    }
-
-    .logo-wrapper.eight {
-        margin: 555px 0px 0px 1040px;
-    }
-
-    .logo-wrapper.nine {
-        margin: 620px 0px 0px 760px;
-    }
-
-    .logo-wrapper.ten {
-        margin: 300px 0px 0px 1035px;
-    }
-
-    .logo-wrapper.eleven {
-        margin: 601px 0px 0px 196px;
-    }
-
-    .logo-wrapper.twelve {
-        margin: 309px 0px 0px;
-    }
 
 
 
